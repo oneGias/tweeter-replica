@@ -21,7 +21,7 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <% if current_user %>
     <ul class="nav navbar-nav">
-      <li class="active"><%= link_to "My awsome tweets", tweets_path %></li>
+      <li><%= link_to "My awsome tweets", tweets_path %></li>
     </ul>
     <% end %>
     <ul class="nav navbar-nav navbar-right">
@@ -34,8 +34,13 @@
   </div><!-- /.navbar-collapse -->
 </nav>
 
-  
-<%= yield %>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-8 col-md-offset-2'>
+      <%= yield %>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

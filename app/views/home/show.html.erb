@@ -1,9 +1,10 @@
 <div class='tweets'>
   <% @tweets.each do |tweet| %>
     <div class='tweet'>
-      <p><%= tweet.body %></p>
-      <p>--> by <%= tweet.user.email %></p>
-      <p>---><%= distance_of_time_in_words Time.now, tweet.created_at %></p>
+      <%= image_tag tweet.user.gravatar_url %>
+      <p class='body'><%= tweet.body %></p>
+      <p class='email'>--> by <%= tweet.user.email %></p>
+      <p class='time'>---><%= distance_of_time_in_words Time.now, tweet.created_at %></p>
     </div>  
   <% end %>
 </div>
