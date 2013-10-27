@@ -1,0 +1,9 @@
+<div class='tweets'>
+  <% @tweets.each do |tweet| %>
+    <div class='tweet'>
+      <p><%= tweet.body %></p>
+      <p>--> by <%= tweet.user.email %></p>
+      <p>---><%= distance_of_time_in_words Time.now, tweet.created_at %></p>
+    </div>  
+  <% end %>
+</div>

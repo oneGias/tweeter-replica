@@ -7,10 +7,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <%= link_to "da Tweeter", root_path, class: 'navbar-brand' %>
+  </div>
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <% if current_user %>
+    <ul class="nav navbar-nav">
+      <li class="active"><%= link_to "My awsome tweets", tweets_path %></li>
+    </ul>
+    <% end %>
+    <ul class="nav navbar-nav navbar-right">
+      <% if !current_user %>
+        <li><%= link_to 'Sign in', new_user_session_path %></li>
+      <% else %>
+        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+      <% end %>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
 
-  <% if current_user %>
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-  <% end %>
+  
 <%= yield %>
 
 </body>
